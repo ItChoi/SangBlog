@@ -13,7 +13,7 @@ public class MainController {
 	@GetMapping("/")
 	public String frontMain() {
 
-		logger.info("왔슙니다...");
+		logger.info("왔슙니다.zasdasdasdasdzzz..");
 		
 		return "/front/main";
 	}

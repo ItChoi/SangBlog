@@ -20,13 +20,6 @@ public class ManagerController {
 		return "/manager/main";
 	}
 	
-	@GetMapping("/test/test")
-	public String frontMainzzz() {
-		
-		logger.info("testasdasdasdasd 왔다 매니저 컨트롤러:::");
-		
-		return "/manager/main";
-	}
 	
 	
 	

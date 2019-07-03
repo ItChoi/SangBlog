@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<div class="header">
+<!-- <div class="header">
 	<div class="logo">
 		<span>SangBlog</span>
 	</div>
@@ -16,4 +16,4 @@
 			<li class="menu">메뉴6</li>
 		</ul>
 	</div>
-</div>    
+</div>     -->

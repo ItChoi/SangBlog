@@ -60,14 +60,43 @@ html, body, .wrap {
 	cursor: pointer;
 }
 
-.menu1:HOVER {
+.menu_1_title:HOVER {
 	color: white;
-	background: lightblue;
+	background: #79AAFF;
+}
+
+.menu_1_sub_list li:HOVER {
+	font-weight: bold;
 }
 
 .content {
 	float: left;
 }
+
+.menu_1_list, .menu_1_sub_list {
+	margin: 0px;  
+	padding: 0px;
+	text-align: center;	
+}
+
+.menu_1 {
+	list-style: none;
+	border-bottom: 1px solid #79AAFF; 
+} 
+
+.menu_1_title {
+	height: 50px;
+}
+.menu_1_title span {
+	line-height: 50px;
+	font-size: 20px;
+}
+
+.menu_1_sub_list li {
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+}
+
 
 
 

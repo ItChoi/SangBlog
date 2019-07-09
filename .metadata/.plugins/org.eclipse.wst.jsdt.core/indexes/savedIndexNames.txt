@@ -4,6 +4,5 @@ INDEX VERSION 1.3+C:\Study\project\SangBlog\.metadata\.plugins\org.eclipse.wst.j
 2660246001.index
 1243965063.index
 2499999794.index
-2499999794.index
 1487582909.index
 1153212480.index

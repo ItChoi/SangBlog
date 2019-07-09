@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link href="/resources/css/tiles/manager_header.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -33,33 +34,38 @@
 		</div>    
 		
 		<div class="navigator">
-			
-			<div class="menu">
-				<div class="menu1">
-					메뉴1
-				</div>
+		
+			<ul class="menu_1_list">
+				<li class="menu_1">
+					<div class="menu_1_title">
+						<span>메뉴1111</span>
+					</div>
+					
+					<ul class="menu_1_sub_list" style="display: none;">
+						<li>test1</li>
+						<li>test1</li>
+						<li>test1</li>
+						<li>test1</li>
+						<li>test1</li>
+						<li>test1</li>
+					</ul>
+				</li>
 				
-				<div class="menu2">
-					메뉴2
-				</div>
-			</div>
-			
-		
-			<!-- <div class="menu1">
-				메뉴1
-				<div class="menu2">
-					메뉴2
-				</div>
-			</div> -->
-		
-			<!-- <ul>
-				<li class="menu_1">메뉴1</li>
-				<li class="menu_1">메뉴2</li>
-				<li class="menu_1">메뉴3</li>
-				<li class="menu_1">메뉴4</li>
-				<li class="menu_1">메뉴5</li>
-				<li class="menu_1">메뉴6</li>
-			</ul> -->
+				<li class="menu_1">
+					<div class="menu_1_title">
+						<span>메뉴2222</span>
+					</div>
+					
+					<ul class="menu_1_sub_list" style="display: none;">
+						<li>test2</li>
+						<li>test2</li>
+						<li>test2</li>
+						<li>test2</li>
+						<li>test2</li>
+						<li>test2</li>
+					</ul>
+				</li>
+			</ul>
 			
 		</div>
 		
@@ -67,8 +73,37 @@
 			asdasdasdasd
 		</div>
 		
-		
-		
 	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.menu_1').on('click', function() {
+				event.preventDefault();
+				var index = $(this).index();
+				
+				// start 코드가 깨끗하지 않다. 메뉴 클릭 시 클래스 on을 추가하는데, 활용할 수 있는 방안 찾아보기....
+				$('.menu_1').removeClass('on');
+				$(this).addClass('on');
+				
+				$('.menu_1 > ul').css("display", "none");
+				$('.menu_1 > ul')[index].style.display = "block";
+				
+				
+				$('.menu_1 > .menu_1_title').css("color", "black");
+				$('.menu_1 > .menu_1_title').css("background", "white");
+				
+				$('.menu_1 > .menu_1_title')[index].style.color = "white";
+				$('.menu_1 > .menu_1_title')[index].style.background = "#79AAFF";
+				// end 코드가 깨끗하지 않다. 메뉴 클릭 시 클래스 on을 추가하는데, 활용할 수 있는 방안 찾아보기....
+				
+			});
+			
+		});
+		
+		function onMenu(that) {
+			console.log("test2: ", that);
+		}
+	</script>
+	
 </body>
 </html>

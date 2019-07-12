@@ -10,13 +10,13 @@
 <link href="/resources/css/tiles/manager_header.css" rel="stylesheet" type="text/css">
 
 </head>
-		<%-- <tiles:insertAttribute name="header" />
-		<tiles:insertAttribute name="navigator" />
-		<tiles:insertAttribute name="content" />	 --%>
 <body>
 	<div class="wrap">
 		
-		<div class="header">
+		<tiles:insertAttribute name="header" />
+		<tiles:insertAttribute name="navigator" />
+		<tiles:insertAttribute name="content" />	
+		<!-- <div class="header">
 			<div class="logo">
 				<span>SangBlog</span>
 			</div>
@@ -71,7 +71,7 @@
 		
 		<div class="content">
 			asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdas d
-		</div>
+		</div> -->
 		
 	</div>
 	

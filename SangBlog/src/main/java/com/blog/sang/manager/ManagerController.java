@@ -12,10 +12,9 @@ public class ManagerController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ManagerController.class);
 	
-	@GetMapping("/test")
+	@GetMapping("/")
 	public String frontMain() {
 		
-		logger.info("test 왔다 매니저 컨트롤러:::");
 		
 		return "/manager/main";
 	}

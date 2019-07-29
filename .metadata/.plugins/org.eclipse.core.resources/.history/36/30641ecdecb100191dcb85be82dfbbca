@@ -1,0 +1,13 @@
+package com.blog.sang.sequence.domain;
+
+public class Sequence {
+
+	private Long sequenceId;
+	private Long sequenceName;
+	private Long count;
+	
+SEQUENCE_ID (LONG) PRIMARY KEY
+- SEQUENCE_NAME (LONG)
+- COUNT (LONG)
+
+}

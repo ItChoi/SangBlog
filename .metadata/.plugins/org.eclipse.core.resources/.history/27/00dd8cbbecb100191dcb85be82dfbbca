@@ -1,0 +1,5 @@
+package com.blog.sang.sequence.domain;
+
+public class Sequence {
+
+}

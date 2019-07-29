@@ -1,0 +1,5 @@
+
+# mysql database setting
+jdbc.type=mysql
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=

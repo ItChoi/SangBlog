@@ -18,3 +18,7 @@
 0:0:0:0:0:0:0:1 - - [12/Jul/2019:18:44:52 +0900] "GET /manager/test HTTP/1.1" 200 3975
 0:0:0:0:0:0:0:1 - - [12/Jul/2019:18:44:52 +0900] "GET /resources/css/tiles/manager_header.css HTTP/1.1" 200 1520
 0:0:0:0:0:0:0:1 - - [12/Jul/2019:18:44:53 +0900] "GET /favicon.ico HTTP/1.1" 404 1047
+127.0.0.1 - - [12/Jul/2019:18:45:40 +0900] "GET / HTTP/1.1" 200 300
+0:0:0:0:0:0:0:1 - - [12/Jul/2019:18:45:41 +0900] "GET / HTTP/1.1" 200 300
+0:0:0:0:0:0:0:1 - - [12/Jul/2019:18:47:06 +0900] "GET /manager/ HTTP/1.1" 200 3975
+0:0:0:0:0:0:0:1 - - [12/Jul/2019:19:09:30 +0900] "GET /gen204?invalidResponse=q=https%3A%2F%2Ftranslate.googleapis.com%2Ftranslate_a%2Fsingle%3Fclient%3Dgtx%26s,ql=147,r=,rl=0 HTTP/1.1" 404 1047

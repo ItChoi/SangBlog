@@ -7,8 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.blog.sang.sequence.SequenceService;
-import com.blog.sang.sequence.domain.Sequence;
+import com.blog.sang.sequence.service.SequenceService;
 
 @Controller
 @RequestMapping(value="/manager")
@@ -22,8 +21,7 @@ public class ManagerController {
 	@GetMapping("/")
 	public String frontMain() {
 		
-		logger.info("test:: " + sequenceService.getCount("test"));
-		
+		logger.info("test:: " + (Long) sequenceService.getCount("test"));
 		
 		return "/manager/main";
 	}

@@ -9,6 +9,6 @@
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
 <fullyQualifiedTypeName name="com.blog.sang.sequence.SequenceServiceImpl"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="com.blog.sang.sequence.domain.Sequence"/>
 <fullyQualifiedTypeName name="com.blog.sang.sequence.SequenceService"/>
+<fullyQualifiedTypeName name="com.blog.sang.sequence.domain.Sequence"/>
 </qualifiedTypeNameHistroy>

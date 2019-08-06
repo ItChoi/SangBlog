@@ -1,0 +1,9 @@
+package com.blog.sang.manager.main.domain;
+
+public class Menu {
+	private Long id;
+	private Long parentId;
+	private String menuLevel;
+	private String menuCode;
+	
+}

@@ -14,6 +14,7 @@
 			<li class="main_menu">메뉴4</li>
 			<li class="main_menu">메뉴5</li>
 			<li class="main_menu">메뉴6</li>
+			<li class="main_menu">메뉴 추가</li>
 		</ul>
 	</div>
 </div>

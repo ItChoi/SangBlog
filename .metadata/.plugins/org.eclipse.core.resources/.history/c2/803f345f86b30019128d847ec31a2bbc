@@ -1,0 +1,7 @@
+package com.blog.sang.manager.sequence.service;
+
+public interface SequenceService {
+	public Long getCount(String sequenceName);
+	public Long getCount();
+
+}

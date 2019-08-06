@@ -9,8 +9,8 @@
 		<put-attribute name="navigator" value="/WEB-INF/tiles/component/manager/navigator.jsp" />
 	</definition>
 
-	<definition name="/manager/*" extends="basic">
-		<put-attribute name="content" value="/WEB-INF/views/manager/{1}.jsp"/>
+	<definition name="/manager/*/*" extends="basic">
+		<put-attribute name="content" value="/WEB-INF/views/manager/{1}/{2}.jsp"/>
 	</definition>
 	
 </tiles-definitions>

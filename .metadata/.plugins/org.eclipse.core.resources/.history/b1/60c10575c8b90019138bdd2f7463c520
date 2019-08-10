@@ -1,0 +1,5 @@
+package com.blog.sang.manager.interceptor;
+
+public class ManagerMenuInterceptor {
+
+}

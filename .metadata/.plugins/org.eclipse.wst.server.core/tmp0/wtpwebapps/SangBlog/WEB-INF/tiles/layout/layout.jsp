@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link href="/resources/css/tiles/manager_header.css" rel="stylesheet" type="text/css">
 
+<link href="/resources/css/tiles/manager_header.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="wrap">
@@ -77,7 +77,9 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('.menu_1').on('click', function() {
+			
+			
+			/* $('.menu_1').on('click', function() {
 				event.preventDefault();
 				var index = $(this).index();
 				
@@ -94,8 +96,9 @@
 				$('.menu_1 > .menu_1_title')[index].style.color = "white";
 				$('.menu_1 > .menu_1_title')[index].style.background = "#79AAFF";
 				// end 코드가 깨끗하지 않다. 메뉴 클릭 시 클래스 on을 추가하는데, 활용할 수 있 는 방안 찾아보기....
-				
-			});
+			}); */
+			
+			
 			
 		});
 		

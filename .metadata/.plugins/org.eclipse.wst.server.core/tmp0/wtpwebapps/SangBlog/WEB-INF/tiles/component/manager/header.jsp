@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<script src="/resources/js/layout.js"></script>
+
     
 <div class="header">
 	<div class="logo">
@@ -8,13 +12,10 @@
 	
 	<div class="header_menu">
 		<ul>
-			<li class="main_menu">메뉴1</li>
-			<li class="main_menu">메뉴2</li>
-			<li class="main_menu">메뉴3</li>
-			<li class="main_menu">메뉴4</li>
-			<li class="main_menu">메뉴5</li>
-			<li class="main_menu">메뉴6</li>
-			<li class="main_menu">메뉴 추가</li>
+			<c:forEach var="menu" items="${allOneMenu}">
+				<li class="main_menu" onclick="javascript: Layout.menuOneClick();">${menu.menuName }</li>
+			</c:forEach>
 		</ul>
 	</div>
+	
 </div>

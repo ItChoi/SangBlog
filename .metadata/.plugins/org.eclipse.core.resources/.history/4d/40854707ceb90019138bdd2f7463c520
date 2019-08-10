@@ -1,0 +1,5 @@
+package com.blog.sang.manager.menu.mapper;
+
+public interface MenuManagerMapper {
+
+}

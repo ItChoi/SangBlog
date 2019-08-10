@@ -1,7 +1,0 @@
-package com.blog.sang.sequence.domain;
-
-public class Sequence {
-	
-}SEQUENCE_ID (LONG) PRIMARY KEY
-- SEQUENCE_NAME (LONG)
-- COUNT (LONG)

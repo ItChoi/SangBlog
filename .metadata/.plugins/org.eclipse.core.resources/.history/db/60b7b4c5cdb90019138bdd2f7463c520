@@ -1,0 +1,5 @@
+package com.blog.sang.manager.menu.service;
+
+public class MenuManagerServiceImpl {
+
+}

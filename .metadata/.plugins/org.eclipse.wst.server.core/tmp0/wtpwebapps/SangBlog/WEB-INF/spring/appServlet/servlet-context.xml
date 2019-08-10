@@ -37,6 +37,16 @@
 	    </beans:property>
 	</beans:bean>
 		
+		
+	<beans:bean id ="managerMenuInterceptor" class="com.blog.sang.manager.interceptor.ManagerMenuInterceptor"/>
+	
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/manager/**"/>
+			<beans:ref bean="managerMenuInterceptor" />
+		</interceptor>
+	</interceptors>
 	
 	<context:component-scan base-package="com.blog.sang" />
 	

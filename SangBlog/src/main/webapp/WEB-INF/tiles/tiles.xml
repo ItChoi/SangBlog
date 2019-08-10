@@ -4,7 +4,6 @@
 
 <tiles-definitions>
 	<definition name="basic" template="/WEB-INF/tiles/layout/layout.jsp">
-	
 		<put-attribute name="header" value="/WEB-INF/tiles/component/manager/header.jsp" />
 		<put-attribute name="navigator" value="/WEB-INF/tiles/component/manager/navigator.jsp" />
 	</definition>

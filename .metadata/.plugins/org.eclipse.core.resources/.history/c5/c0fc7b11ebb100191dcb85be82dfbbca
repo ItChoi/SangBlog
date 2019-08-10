@@ -1,8 +1,0 @@
-package com.blog.sang.sequence;
-
-
-public interface SequenceMapper {
-	public Long getCount(String sequenceName);
-	public void insert(String sequenceName);
-	public void insert(String sequenceName);
-}

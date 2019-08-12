@@ -5,7 +5,10 @@
 Layout = {
 	
 	menuOneClick : function() {
+		alert("123123123");
 		$.ajax({
+			type: 'post',
+			url: '/manager/menu/menu-two-list'
 			
 		});
 	},

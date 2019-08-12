@@ -3,6 +3,7 @@ package com.blog.sang.manager.menu;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,10 +33,16 @@ public class MenuManagerController {
 	@PostMapping("/menu-two-list")
 	public ResponseEntity<List<Menu>> menuTwoList(long id) {
 		
-	List<Menu> menuTwoList = menuManagerService.getMenuByParentId(id);
+	// TODO:::: 쿼리문 제대로 작성........
+	// List<Menu> menuNavigatorList = menuManagerService.getMenuByParentId(id);
+		List<Menu> menuNavigatorList = menuManagerService.getMenuByParentId(1L);
 		
-		
-		return menuTwoList;
+		for (Menu a : menuNavigatorList) {
+			System.out.println("test : " + a.getId());
+		}
+	
+	
+		return new ResponseEntity<>(menuNavigatorList, HttpStatus.OK);
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.blog.sang.manager.interceptor;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.blog.sang.manager.menu.domain.Menu;
 import com.blog.sang.manager.menu.service.MenuManagerService;
 
 public class ManagerMenuInterceptor extends HandlerInterceptorAdapter {
@@ -30,6 +33,13 @@ public class ManagerMenuInterceptor extends HandlerInterceptorAdapter {
 			ModelAndView modelAndView) throws Exception {
 		
 		// header.jsp에서 1차 메뉴 이름 값 전달.
+		List<Menu> a = menuManagerService.getAllOneMenu();
+		if (a != null) {
+			for (Menu aa : a) {
+				logger.info("test111: " + aa.getId());
+			}
+		}
+		logger.info("test22222222: ");
 		modelAndView.addObject("allOneMenu", menuManagerService.getAllOneMenu());
 		
 		super.postHandle(request, response, handler, modelAndView);

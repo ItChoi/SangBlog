@@ -4,13 +4,25 @@
 
 Layout = {
 	
-	menuOneClick : function() {
-		alert("123123123");
-		$.ajax({
+	menuOneClick : function(menuCode) {
+		alert("menuCode: " + menuCode);
+		
+		
+		/*$.ajax({
 			type: 'post',
-			url: '/manager/menu/menu-two-list'
-			
-		});
+			url: '/manager/menu/menu-two-list',
+			data: {
+				'id' : id
+			},
+			success: function(response) {
+				alert("성공");
+			},
+			error: function(request, status, error) {
+				alert("code: " + request.status + "\n"
+					+ "message: " + request.responseText + "\n" +
+					+ "error: " + error);
+			}
+		});*/
 	},
 		
 	menuTwoClick : function(that) {

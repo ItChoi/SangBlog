@@ -50,7 +50,7 @@
 			MANAGER_MENU MM,
 			(
 				SELECT
-					ID,
+					ID
 				FROM
 					MANAGER_MENU
 				WHERE
@@ -59,8 +59,6 @@
 		WHERE
 			MM.PARENT_ID = MMM.ID
 		order by MENU_LEVEL, ORDERING
-			
-			
 	</select>
 	
 	

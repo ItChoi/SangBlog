@@ -13,7 +13,9 @@
 	<div class="header_menu">
 		<ul>
 			<c:forEach var="menu" items="${allOneMenu}">
-				<li class="main_menu" onclick="javascript: Layout.menuOneClick();">${menu.menuName }</li>
+				<li class="main_menu" onclick="javascript: Layout.menuOneClick('${menu.menuCode}');">
+					${menu.menuName }
+				</li>
 			</c:forEach>
 		</ul>
 	</div>

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.blog.sang.manager.menu.domain.Menu;
 import com.blog.sang.manager.menu.service.MenuManagerService;
+import com.blog.sang.manager.menu.support.MenuParam;
 
 public class ManagerMenuInterceptor extends HandlerInterceptorAdapter {
 	
@@ -33,14 +34,29 @@ public class ManagerMenuInterceptor extends HandlerInterceptorAdapter {
 			ModelAndView modelAndView) throws Exception {
 		
 		// header.jsp에서 1차 메뉴 이름 값 전달.
-		List<Menu> a = menuManagerService.getAllOneMenu();
-		if (a != null) {
-			for (Menu aa : a) {
-				logger.info("test111: " + aa.getId());
-			}
-		}
-		logger.info("test22222222: ");
 		modelAndView.addObject("allOneMenu", menuManagerService.getAllOneMenu());
+		
+		String uri = request.getRequestURI();
+		
+		logger.info("uri: " + uri);
+		
+		// TODO:::: 메뉴 리스트 구성 중....
+		String menuUrl = uri.substring(0, uri.lastIndexOf("/") + 1);
+		String menuUri = uri.substring(uri.lastIndexOf("/") + 1);
+		
+		MenuParam menuParam = new MenuParam();
+		menuParam.setUrl(menuUrl);
+		menuParam.setUrl(menuUri);
+		menuParam.setMenuLevel("1");
+		
+		Menu menu = menuManagerService.getMenuByMenuParam(menuParam);
+		
+		menuParam.setMenuLevel("");
+		menuParam.setParentId(menu.getId());
+		
+		modelAndView.addObject("allTwoAndThreeMenu", menuManagerService.getMenuTwoAndThreeListByMenuParam(menuParam));
+		
+		
 		
 		super.postHandle(request, response, handler, modelAndView);
 	}

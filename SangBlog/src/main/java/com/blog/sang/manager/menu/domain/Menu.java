@@ -9,6 +9,7 @@ public class Menu {
 	private String ordering;
 	private String url;
 	private String uri;
+	private String menuDisplay;
 	
 	private Menu menu;
 	
@@ -66,6 +67,13 @@ public class Menu {
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 	}
+	public String getMenuDisplay() {
+		return menuDisplay;
+	}
+	public void setMenuDisplay(String menuDisplay) {
+		this.menuDisplay = menuDisplay;
+	}
+	
 	
 	
 }

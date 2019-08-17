@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
     
 <script src="/resources/js/layout.js"></script>
     
@@ -12,12 +13,11 @@
 					</div>
 					
 					<ul class="menu_1_sub_list" style="display: none;">
-						<li>test1</li>
-						<li>test1</li>
-						<li>test1</li>
-						<li>test1</li>
-						<li>test1</li>
-						<li>test1</li>
+						<c:forEach var="menuTwoAndThree" items="${allTwoAndThreeMenu }">
+							<c:if test='${menuTwoAndThree.menuLevel eq "2" }'>
+								<li>${menuTwoAndThree.menuName }</li>
+							</c:if>
+						</c:forEach>
 					</ul>
 				</li>
 				

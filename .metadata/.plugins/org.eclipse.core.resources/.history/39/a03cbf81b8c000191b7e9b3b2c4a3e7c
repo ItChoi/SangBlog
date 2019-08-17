@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.blog.sang.manager.menu.mapper.MenuManagerMapper">
+	<resultMap id="MenuResult" type="com.blog.sang.manager.menu.domain.Menu">
+		<id property="id" column="ID" />
+		<result property="parentId" column="PARENT_ID"/>
+		<result property="menuLevel" column="MENU_LEVEL"/>
+		<result property="menuCode" column="MENU_CODE"/>
+		<result property="menuName" column="MENU_NAME"/>
+		<result property="ordering" column="ORDERING"/>
+		<result property="url" column="URL"/>
+		<result property="uri" column="URI"/>
+	</resultMap>
+	
+	<sql id="AllMenuColumn">
+		MM.ID,
+		MM.PARENT_ID,
+		MM.MENU_LEVEL,
+		MM.MENU_CODE,
+		MM.MENU_NAME,
+		MM.ORDERING,
+		MM.URL,
+		MM.URI
+	</sql>
+	
+	<sql id="whereMenuParam">
+		<where>
+			<if test="id > 0">
+				ID = #{id}
+			</if>
+			<if test="parentId > 0">
+				PARENT_ID = #{parentId}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="getAllOneMenu" resultMap="MenuResult">
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM
+		WHERE
+			PARENT_ID IS NULL
+		ORDER BY ORDERING
+	</select>
+	
+	<select id="getMenuByMenuParam">
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU
+		
+	</select>
+	
+	<select id="getMenuTwoAndThreeList" parameterType="com.blog.sang.manager.menu.support.MenuParam" resultMap="MenuResult">
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM
+		WHERE
+			PARENT_ID = #{parentId}
+		UNION
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM,
+			(
+				SELECT
+					ID
+				FROM
+					MANAGER_MENU
+				WHERE
+					PARENT_ID = #{parentId}
+			) MMM
+		WHERE
+			MM.PARENT_ID = MMM.ID
+		order by MENU_LEVEL, ORDERING
+	</select>
+	
+	
+</mapper>

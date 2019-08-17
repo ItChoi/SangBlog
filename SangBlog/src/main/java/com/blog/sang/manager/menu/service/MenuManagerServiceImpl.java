@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.blog.sang.manager.menu.domain.Menu;
 import com.blog.sang.manager.menu.mapper.MenuManagerMapper;
+import com.blog.sang.manager.menu.support.MenuParam;
 
 @Service
 public class MenuManagerServiceImpl implements MenuManagerService {
@@ -20,8 +21,13 @@ public class MenuManagerServiceImpl implements MenuManagerService {
 	}
 	
 	@Override
-	public List<Menu> getMenuByParentId(long id) {
+	public Menu getMenuByMenuParam(MenuParam menuParam) {
+		return menuManagerMapper.getMenuByMenuParam(menuParam);
+	}
+	
+	@Override
+	public List<Menu> getMenuTwoAndThreeListByMenuParam(MenuParam menuParam) {
 		
-		return menuManagerMapper.getMenuByParentId(id);
+		return menuManagerMapper.getMenuTwoAndThreeListByMenuParam(menuParam);
 	}
 }

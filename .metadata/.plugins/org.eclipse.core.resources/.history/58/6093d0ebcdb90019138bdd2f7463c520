@@ -1,8 +1,0 @@
-package com.blog.sang.manager.menu.service;
-
-import org.springframework.stereotype.Service;
-
-@Service
-public class MenuManagerServiceImpl implements MenuManagerService {
-
-}

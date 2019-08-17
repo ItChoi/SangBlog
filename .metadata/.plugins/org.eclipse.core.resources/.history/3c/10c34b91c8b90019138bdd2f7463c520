@@ -1,7 +1,0 @@
-package com.blog.sang.manager.interceptor;
-
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-public class ManagerMenuInterceptor extends HandlerInterceptorAdapter {
-
-}

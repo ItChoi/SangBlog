@@ -99,3 +99,16 @@
 0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:23:30 +0900] "GET /resources/js/layout.js HTTP/1.1" 200 1346
 0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:23:30 +0900] "GET /resources/css/tiles/manager_header.css HTTP/1.1" 200 1520
 0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:23:31 +0900] "GET /favicon.ico HTTP/1.1" 404 1047
+127.0.0.1 - - [16/Aug/2019:18:24:19 +0900] "GET / HTTP/1.1" 200 300
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:25:30 +0900] "GET /manager/main/ HTTP/1.1" 200 2193
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:25:30 +0900] "GET /resources/css/tiles/manager_header.css HTTP/1.1" 200 1520
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:25:30 +0900] "GET /resources/js/layout.js HTTP/1.1" 200 1346
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:25:31 +0900] "GET /favicon.ico HTTP/1.1" 404 1047
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:15 +0900] "GET /manager/main/ HTTP/1.1" 200 2199
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:15 +0900] "GET /resources/css/tiles/manager_header.css HTTP/1.1" 200 1520
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:15 +0900] "GET /resources/js/layout.js HTTP/1.1" 200 1346
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:16 +0900] "GET /favicon.ico HTTP/1.1" 404 1047
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:22 +0900] "GET /manager/main/ HTTP/1.1" 200 2199
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:22 +0900] "GET /resources/js/layout.js HTTP/1.1" 200 1346
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:23 +0900] "GET /resources/css/tiles/manager_header.css HTTP/1.1" 200 1520
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:18:26:23 +0900] "GET /favicon.ico HTTP/1.1" 404 1047

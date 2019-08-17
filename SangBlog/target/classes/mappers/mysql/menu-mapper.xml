@@ -13,6 +13,7 @@
 		<result property="ordering" column="ORDERING"/>
 		<result property="url" column="URL"/>
 		<result property="uri" column="URI"/>
+		<result property="menuDisplay" column="MENU_DISPLAY"/>
 	</resultMap>
 	
 	<sql id="AllMenuColumn">
@@ -23,7 +24,45 @@
 		MM.MENU_NAME,
 		MM.ORDERING,
 		MM.URL,
-		MM.URI
+		MM.URI,
+		MM.MENU_DISPLAY
+	</sql>
+	
+	<sql id="whereMenuParam">
+		<where>
+			<if test='id > 0'>
+				AND ID = #{id}
+			</if>
+			
+			<if test='parentId > 0'>
+				AND PARENT_ID = #{parentId}
+			</if>
+			
+			<if test='menuLevel != null and menuLevel != ""'>
+				AND MENU_LEVEL = #{menuLevel}
+			</if>
+			
+			<if test='menuCode != null and menuCode != ""'>
+				AND MENU_CODE = #{menuCode}
+			</if>
+			
+			<if test='menuName != null and menuName != ""'>
+				AND MENU_NAME = #{menuName}
+			</if>
+			
+			<if test='url != null and url != ""'>
+				AND URL = #{url}
+			</if>
+			
+			<if test='uri != null and uri != ""'>
+				AND URI = #{uri}
+			</if>
+			
+			<if test='menuDisplay != null and menuDisplay != ""'>
+				AND MENU_DISPLAY = #{menuDisplay}
+			</if>
+			
+		</where>
 	</sql>
 	
 	<select id="getAllOneMenu" resultMap="MenuResult">
@@ -36,7 +75,16 @@
 		ORDER BY ORDERING
 	</select>
 	
-	<select id="getMenuByParentId" parameterType="long" resultMap="MenuResult">
+	<select id="getMenuByMenuParam" parameterType="com.blog.sang.manager.menu.support.MenuParam" resultMap="MenuResult">
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM
+		<include refid="whereMenuParam" />
+		
+	</select>
+	
+	<select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.support.MenuParam" resultMap="MenuResult">
 		SELECT
 			<include refid="AllMenuColumn" />
 		FROM

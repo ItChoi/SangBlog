@@ -13,7 +13,7 @@
 	<div class="header_menu">
 		<ul>
 			<c:forEach var="menu" items="${allOneMenu}">
-				<li class="main_menu" onclick="javascript: Layout.menuOneClick('${menu.menuCode}');">
+				<li class="main_menu" onclick="javascript: Layout.menuOneClick('${menu.url}${menu.uri }', '${menu.menuCode }');">
 					${menu.menuName }
 				</li>
 			</c:forEach>

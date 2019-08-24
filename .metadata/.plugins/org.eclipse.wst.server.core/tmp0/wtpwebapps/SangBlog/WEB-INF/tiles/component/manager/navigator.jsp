@@ -7,34 +7,23 @@
 <div class="navigator">
 		
 			<ul class="menu_1_list">
-				<li class="menu_1" onclick="javascript: Layout.menuTwoClick($(this));">
-					<div class="menu_1_title">
-						<span>메뉴1111</span>
-					</div>
-					
-					<ul class="menu_1_sub_list" style="display: none;">
-						<c:forEach var="menuTwoAndThree" items="${allTwoAndThreeMenu }">
+				<!-- TODO::: 메뉴 2차, 3차 뿌려주기  - 쿼리 먼저 수정하기. menu-mapper.xml(getMenuTwoAndThreeListByMenuParam) -->
+				<c:forEach var="menuTwoAndThree" items="${allTwoAndThreeMenu }">
+					<li class="menu_1" onclick="javascript: Layout.menuTwoClick($(this));">
+						<div class="menu_1_title">
 							<c:if test='${menuTwoAndThree.menuLevel eq "2" }'>
+								<span>${menuTwoAndThree.menuName }</span>
+							</c:if>
+						</div>
+						
+						<ul class="menu_1_sub_list" style="display: none;">
+							<c:if test='${menuTwoAndThree.menuLevel eq "3" }'>
 								<li>${menuTwoAndThree.menuName }</li>
 							</c:if>
-						</c:forEach>
-					</ul>
-				</li>
+						</ul>
+					</li>
+				</c:forEach>
 				
-				<li class="menu_1" onclick="javascript:Layout.menuTwoClick($(this));">
-					<div class="menu_1_title">
-						<span>메뉴2222</span>
-					</div>
-					
-					<ul class="menu_1_sub_list" style="display: none;">
-						<li>test2</li>
-						<li>test2</li>
-						<li>test2</li>
-						<li>test2</li>
-						<li>test2</li>
-						<li>test2</li>
-					</ul>
-				</li>
 			</ul>
 			
 		</div>

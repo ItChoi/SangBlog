@@ -75,7 +75,7 @@
 		ORDER BY ORDERING
 	</select>
 	
-	<select id="getMenuByMenuParam" parameterType="com.blog.sang.manager.menu.support.MenuParam" resultMap="MenuResult">
+	<select id="getMenuByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
 		SELECT
 			<include refid="AllMenuColumn" />
 		FROM
@@ -84,28 +84,21 @@
 		
 	</select>
 	
-	<select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.support.MenuParam" resultMap="MenuResult">
+	<select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
+		<!-- 쿼리 다시 짜기.. 2차 3차 메뉴 한번에 가져올 수 있도록 -->
 		SELECT
 			<include refid="AllMenuColumn" />
 		FROM
 			MANAGER_MENU MM
 		WHERE
-			PARENT_ID = #{parentId}
+			ID = #{parentId}
 		UNION
 		SELECT
 			<include refid="AllMenuColumn" />
 		FROM
-			MANAGER_MENU MM,
-			(
-				SELECT
-					ID
-				FROM
-					MANAGER_MENU
-				WHERE
-					PARENT_ID = #{parentId}
-			) MMM
+			MANAGER_MENU MM
 		WHERE
-			MM.PARENT_ID = MMM.ID
+			MM.PARENT_ID = #{parentId}
 		order by MENU_LEVEL, ORDERING
 	</select>
 	

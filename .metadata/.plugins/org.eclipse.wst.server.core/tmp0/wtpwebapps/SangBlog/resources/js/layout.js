@@ -4,8 +4,8 @@
 
 Layout = {
 	
-	menuOneClick : function(locationPath, menuCode) {
-		location.href = locationPath; 
+	menuOneClick : function(menuCode) {
+		location.href = "/manager/" + menuCode + "/"; 
 		
 		/*$.ajax({
 			type: 'post',

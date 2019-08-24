@@ -38,14 +38,14 @@
 	</beans:bean>
 		
 		
-	<beans:bean id ="managerMenuInterceptor" class="com.blog.sang.manager.interceptor.ManagerMenuInterceptor"/>
+	<beans:bean id ="menuManagerInterceptor" class="com.blog.sang.manager.interceptor.MenuManagerInterceptor"/>
 	
 	
 	<interceptors>
 		<interceptor>
 			<mapping path="/manager/**"/>
 			<exclude-mapping path="/manager/menu/menu-two-list"/>
-			<beans:ref bean="managerMenuInterceptor" />
+			<beans:ref bean="menuManagerInterceptor" />
 		</interceptor>
 	</interceptors>
 	

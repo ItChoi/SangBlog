@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SangBlog/src/main/java/com/blog/sang/manager/interceptor/ManagerMenuInterceptor.java&apos; to &apos;MenuManagerInterceptor.java&apos;" description="Rename resource &apos;ManagerMenuInterceptor.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/blog/sang/manager/interceptor/ManagerMenuInterceptor.java" name="MenuManagerInterceptor.java" stamp="1566615426184" updateReferences="true"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;SangBlog/src/main/webapp/WEB-INF/views/manager/main&apos;" deleteContents="false" description="Delete resource &apos;SangBlog/src/main/webapp/WEB-INF/views/manager/main&apos;" element1="/SangBlog/src/main/webapp/WEB-INF/views/manager/main" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1566616154097"/>
+</session>

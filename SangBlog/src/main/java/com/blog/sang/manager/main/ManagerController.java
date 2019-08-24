@@ -21,7 +21,6 @@ public class ManagerController {
 	@GetMapping("/")
 	public String frontMain() {
 		
-		
 		return "/manager/main/main";
 	}
 	

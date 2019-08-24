@@ -21,13 +21,13 @@ public class MenuManagerServiceImpl implements MenuManagerService {
 	}
 	
 	@Override
-	public Menu getMenuByMenuParam(MenuParam menuParam) {
-		return menuManagerMapper.getMenuByMenuParam(menuParam);
+	public Menu getMenuByMenuParam(Menu menu) {
+		return menuManagerMapper.getMenuByMenuParam(menu);
 	}
 	
 	@Override
-	public List<Menu> getMenuTwoAndThreeListByMenuParam(MenuParam menuParam) {
+	public List<Menu> getMenuTwoAndThreeListByMenuParam(Menu menu) {
 		
-		return menuManagerMapper.getMenuTwoAndThreeListByMenuParam(menuParam);
+		return menuManagerMapper.getMenuTwoAndThreeListByMenuParam(menu);
 	}
 }

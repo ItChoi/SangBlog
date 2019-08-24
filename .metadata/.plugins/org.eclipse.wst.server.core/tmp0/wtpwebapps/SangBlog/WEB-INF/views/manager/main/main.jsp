@@ -3,6 +3,6 @@
     
 <body>
 	<div class="content">
-		asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdas dㅁㄴ
+		메인 페이지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	</div>
 </body>

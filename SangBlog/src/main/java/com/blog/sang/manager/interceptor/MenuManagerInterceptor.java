@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -40,15 +41,27 @@ public class MenuManagerInterceptor extends HandlerInterceptorAdapter {
 		String menuUri = uri.substring(uri.lastIndexOf("/") + 1);
 		
 		Menu menuParam = new Menu();
-		menuParam.setUrl(menuUrl);
-		menuParam.setUri(menuUri);
+		
+		if (!StringUtils.isEmpty(menuUrl) && !StringUtils.isEmpty(menuUri)) {
+			menuParam.setUrl(menuUrl);
+			menuParam.setUri(menuUri);
+		} else {
+			String managerUrl = "manager/";
+			String menuCode = uri.substring(uri.lastIndexOf(managerUrl) + managerUrl.length());
+			menuCode = menuCode.replaceAll("/", "");
+			menuParam.setMenuCode(menuCode);
+		}
+		
 		
 		Menu menu = menuManagerService.getMenuByMenuParam(menuParam);
 		
 		if (menu != null) {
 			menuParam.setMenuLevel("");
-			menuParam.setParentId(menu.getParentId());
+			menuParam.setParentId(menu.getId());
+			
 			modelAndView.addObject("allTwoAndThreeMenu", menuManagerService.getMenuTwoAndThreeListByMenuParam(menuParam));
+			
+			
 		}
 		
 		super.postHandle(request, response, handler, modelAndView);

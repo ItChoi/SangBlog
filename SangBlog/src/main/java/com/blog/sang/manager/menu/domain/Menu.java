@@ -1,5 +1,7 @@
 package com.blog.sang.manager.menu.domain;
 
+import java.util.List;
+
 public class Menu {
 	private Long id;
 	private Long parentId;
@@ -11,7 +13,7 @@ public class Menu {
 	private String uri;
 	private String menuDisplay;
 	
-	private Menu menu;
+	private List<Menu> menu;
 	
 	public Long getId() {
 		return id;
@@ -61,10 +63,11 @@ public class Menu {
 	public void setUri(String uri) {
 		this.uri = uri;
 	}
-	public Menu getMenu() {
+	
+	public List<Menu> getMenu() {
 		return menu;
 	}
-	public void setMenu(Menu menu) {
+	public void setMenu(List<Menu> menu) {
 		this.menu = menu;
 	}
 	public String getMenuDisplay() {

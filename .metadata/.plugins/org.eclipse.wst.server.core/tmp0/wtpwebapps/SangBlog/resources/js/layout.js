@@ -28,6 +28,8 @@ Layout = {
 		// event.preventDefault();
 		var index = that.index();
 		
+		alert("index: " + index);
+		
 		// start 코드가 깨끗하지 않다. 메뉴 클릭 시 클래스 on을 추가하는데, 활용할 수 있는 방안 찾아보기....
 		$('.menu_1').removeClass('on');
 		that.addClass('on');

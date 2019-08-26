@@ -34,7 +34,7 @@
 
 	<!-- SQL Logger -->
 	<!-- sql문과 해당 sql을 실행시키는데 수행된 시간 정보(milliseconds)를 포함 -->
-	<logger name="jdbc.sqltiming" additivity="true">
+	<logger name="jdbc.sqltiming" additivity="false">
 		<level value="warn"/>
 		<appender-ref ref="console"/>
 	</logger>

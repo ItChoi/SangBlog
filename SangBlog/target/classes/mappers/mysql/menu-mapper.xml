@@ -91,14 +91,22 @@
 		FROM
 			MANAGER_MENU MM
 		WHERE
-			ID = #{parentId}
+			PARENT_ID = #{parentId}
 		UNION
 		SELECT
 			<include refid="AllMenuColumn" />
 		FROM
-			MANAGER_MENU MM
+			MANAGER_MENU MM,
+			(
+				SELECT
+					<include refid="AllMenuColumn" />
+				FROM
+					MANAGER_MENU MM
+				WHERE
+					PARENT_ID = #{parentId}
+			) MMM
 		WHERE
-			MM.PARENT_ID = #{parentId}
+			MM.PARENT_ID = MMM.ID
 		order by MENU_LEVEL, ORDERING
 	</select>
 	

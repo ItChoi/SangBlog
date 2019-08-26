@@ -16,16 +16,4 @@ public class MenuManagerController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MenuManagerController.class);
 
-	@Autowired
-	MenuManagerService menuManagerService;
-	
-	@GetMapping("{menuCode}") 
-	public String menuList(@PathVariable("menuCode") String menuCode) {
-		
-		// TODO::: 메뉴 테이블 설계 확인.... 
-		
-		return "view:/manager/menu/list";
-	}
-	
-	
 }

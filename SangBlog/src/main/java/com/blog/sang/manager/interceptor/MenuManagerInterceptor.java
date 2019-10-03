@@ -1,5 +1,7 @@
 package com.blog.sang.manager.interceptor;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,6 +42,10 @@ public class MenuManagerInterceptor extends HandlerInterceptorAdapter {
 		String menuUrl = uri.substring(0, uri.lastIndexOf("/") + 1);
 		String menuUri = uri.substring(uri.lastIndexOf("/") + 1);
 		
+		logger.info("menuUrl: " + menuUrl);
+		logger.info("menuUri: " + menuUri);
+		logger.info("request param: " + request.getParameter("menuCode"));
+		
 		Menu menuParam = new Menu();
 		
 		if (!StringUtils.isEmpty(menuUrl) && !StringUtils.isEmpty(menuUri)) {
@@ -48,16 +54,48 @@ public class MenuManagerInterceptor extends HandlerInterceptorAdapter {
 		} else {
 			String managerUrl = "manager/";
 			String menuCode = uri.substring(uri.lastIndexOf(managerUrl) + managerUrl.length());
+			
+			logger.info("menuCode: " + menuCode);
+			
 			menuCode = menuCode.replaceAll("/", "");
 			menuParam.setMenuCode(menuCode);
 		}
-		
 		
 		Menu menu = menuManagerService.getMenuByMenuParam(menuParam);
 		
 		if (menu != null) {
 			menuParam.setMenuLevel("");
 			menuParam.setParentId(menu.getId());
+			
+			List<Menu> menuList = menuManagerService.getMenuTwoAndThreeListByMenuParam(menuParam);
+			
+			logger.info("menuList::: " + menuList);
+			
+			for (Menu val : menuList) {
+				logger.info("부모       ::: " + val.getId());
+				logger.info("부모       ::: " + val.getParentId());
+				logger.info("부모       ::: " + val.getMenuLevel());
+				logger.info("부모       ::: " + val.getMenuCode());
+				logger.info("부모       ::: " + val.getMenuName());
+				logger.info("부모       ::: " + val.getOrdering());
+				logger.info("부모       ::: " + val.getUrl());
+				logger.info("부모       ::: " + val.getUri());
+				logger.info("부모       ::: " + val.getMenuDisplay());
+				for (Menu val1 : menuList) {
+					logger.info("자식::: " + val1.getId());
+					logger.info("자식::: " + val1.getParentId());
+					logger.info("자식::: " + val1.getMenuLevel());
+					logger.info("자식::: " + val1.getMenuCode());
+					logger.info("자식::: " + val1.getMenuName());
+					logger.info("자식::: " + val1.getOrdering());
+					logger.info("자식::: " + val1.getUrl());
+					logger.info("자식::: " + val1.getUri());
+				}
+			}
+			
+			// TODO::: 쿼리로 2차 3차 메뉴를 한 번에 가져오나, 2, 3차를 분리하여 Menu에 넣자.
+			
+		
 			
 			modelAndView.addObject("allTwoAndThreeMenu", menuManagerService.getMenuTwoAndThreeListByMenuParam(menuParam));
 			

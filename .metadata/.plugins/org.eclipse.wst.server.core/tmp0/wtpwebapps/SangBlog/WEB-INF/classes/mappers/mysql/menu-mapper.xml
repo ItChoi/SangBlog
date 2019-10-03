@@ -14,6 +14,19 @@
 		<result property="url" column="URL"/>
 		<result property="uri" column="URI"/>
 		<result property="menuDisplay" column="MENU_DISPLAY"/>
+		<association property="childMenu"  resultMap="MenuChildResult"/>
+	</resultMap>
+	
+	<resultMap id="MenuChildResult" type="com.blog.sang.manager.menu.domain.Menu">
+		<id property="id" column="ID" />
+		<result property="parentId" column="PARENT_ID"/>
+		<result property="menuLevel" column="MENU_LEVEL"/>
+		<result property="menuCode" column="MENU_CODE"/>
+		<result property="menuName" column="MENU_NAME"/>
+		<result property="ordering" column="ORDERING"/>
+		<result property="url" column="URL"/>
+		<result property="uri" column="URI"/>
+		<result property="menuDisplay" column="MENU_DISPLAY"/>
 	</resultMap>
 	
 	<sql id="AllMenuColumn">
@@ -85,7 +98,34 @@
 	</select>
 	
 	<select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
-		<!-- 쿼리 다시 짜기.. 2차 3차 메뉴 한번에 가져올 수 있도록 -->
+		select 
+			parent.id,
+			parent.parent_id,
+			parent.menu_level,
+			parent.menu_code,
+			parent.menu_name,
+			parent.ordering,
+			parent.url,
+			parent.uri,
+			parent.menu_display,
+			childMenu.id,
+			childMenu.parent_id,
+			childMenu.menu_level,
+			childMenu.menu_code,
+			childMenu.menu_name,
+			childMenu.ordering,
+			childMenu.url,
+			childMenu.uri,
+			childMenu.menu_display
+		from
+			manager_menu parent
+			left join manager_menu childMenu
+				on childMenu.parent_id = parent.id
+		where
+			parent.parent_id = 6
+	</select>
+	
+	<!-- <select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
 		SELECT
 			<include refid="AllMenuColumn" />
 		FROM
@@ -108,7 +148,7 @@
 		WHERE
 			MM.PARENT_ID = MMM.ID
 		order by MENU_LEVEL, ORDERING
-	</select>
+	</select> -->
 	
 	
 </mapper>

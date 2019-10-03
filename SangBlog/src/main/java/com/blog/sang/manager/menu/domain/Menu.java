@@ -13,7 +13,7 @@ public class Menu {
 	private String uri;
 	private String menuDisplay;
 	
-	private List<Menu> menu;
+	private List<Menu> childMenu;
 	
 	public Long getId() {
 		return id;
@@ -63,12 +63,11 @@ public class Menu {
 	public void setUri(String uri) {
 		this.uri = uri;
 	}
-	
-	public List<Menu> getMenu() {
-		return menu;
+	public List<Menu> getChildMenu() {
+		return childMenu;
 	}
-	public void setMenu(List<Menu> menu) {
-		this.menu = menu;
+	public void setChildMenu(List<Menu> childMenu) {
+		this.childMenu = childMenu;
 	}
 	public String getMenuDisplay() {
 		return menuDisplay;

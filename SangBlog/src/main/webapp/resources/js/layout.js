@@ -34,8 +34,10 @@ Layout = {
 		$('.menu_1').removeClass('on');
 		that.addClass('on');
 		
-		$('.menu_1 > ul').css("display", "none");
-		$('.menu_1 > ul')[index].style.display = "block";
+		console.log("index: " + index);
+		
+		$('.menu_1 > .menu_1_sub_list').css("display", "none");
+		$('.menu_1 > .menu_1_sub_list')[index].style.display = "block";
 		
 		$('.menu_1 > .menu_1_title').css("color", "black");
 		$('.menu_1 > .menu_1_title').css("background", "white");

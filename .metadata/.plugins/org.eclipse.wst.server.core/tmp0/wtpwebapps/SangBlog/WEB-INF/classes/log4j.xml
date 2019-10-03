@@ -12,7 +12,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.blog.sang">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -39,7 +39,7 @@
 		<appender-ref ref="console"/>
 	</logger>
 	<!-- sql 쿼리 문장만 로그로 남긴다. PreparedStatement일 경우 관련된 arg 값으로 대체된 sql문이 보여진다. -->
-	<logger name="jdbc.sqlonly" additivity="true">
+	<logger name="jdbc.sqlonly" additivity="false">
 		<level value="info"/>
 		<appender-ref ref="console"/>
 	</logger>

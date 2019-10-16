@@ -14,10 +14,20 @@
 		<result property="url" column="URL"/>
 		<result property="uri" column="URI"/>
 		<result property="menuDisplay" column="MENU_DISPLAY"/>
-		<association property="childMenu"  resultMap="MenuChildResult"/>
+		
+		<result property="childId" column="CHILD_ID" />
+		<result property="childParentId" column="CHILD_PARENT_ID"/>
+		<result property="childMenuLevel" column="CHILD_MENU_LEVEL"/>
+		<result property="childMenuCode" column="CHILD_MENU_CODE"/>
+		<result property="childMenuName" column="CHILD_MENU_NAME"/>
+		<result property="childOrdering" column="CHILD_ORDERING"/>
+		<result property="childUrl" column="CHILD_URL"/>
+		<result property="childUri" column="CHILD_URI"/>
+		<result property="childMenuDisplay" column="CHILD_MENU_DISPLAY"/>
+		<!-- <association property="childMenu" resultMap="MenuChildResult" /> -->
 	</resultMap>
 	
-	<resultMap id="MenuChildResult" type="com.blog.sang.manager.menu.domain.Menu">
+	<!-- <resultMap id="MenuChildResult" type="com.blog.sang.manager.menu.domain.Menu">
 		<id property="id" column="ID" />
 		<result property="parentId" column="PARENT_ID"/>
 		<result property="menuLevel" column="MENU_LEVEL"/>
@@ -27,7 +37,7 @@
 		<result property="url" column="URL"/>
 		<result property="uri" column="URI"/>
 		<result property="menuDisplay" column="MENU_DISPLAY"/>
-	</resultMap>
+	</resultMap> -->
 	
 	<sql id="AllMenuColumn">
 		MM.ID,
@@ -99,30 +109,31 @@
 	
 	<select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
 		select 
-			parent.id,
-			parent.parent_id,
-			parent.menu_level,
-			parent.menu_code,
-			parent.menu_name,
-			parent.ordering,
-			parent.url,
-			parent.uri,
-			parent.menu_display,
-			childMenu.id,
-			childMenu.parent_id,
-			childMenu.menu_level,
-			childMenu.menu_code,
-			childMenu.menu_name,
-			childMenu.ordering,
-			childMenu.url,
-			childMenu.uri,
-			childMenu.menu_display
+			parent.id id,
+			parent.parent_id parent_id,
+			parent.menu_level menu_level,
+			parent.menu_code menu_code,
+			parent.menu_name menu_name,
+			parent.ordering ordering,
+			parent.url url,
+			parent.uri uri,
+			parent.menu_display menu_display,
+			childMenu.id child_id,
+			childMenu.parent_id child_parent_id,
+			childMenu.menu_level child_menu_level,
+			childMenu.menu_code child_menu_code,
+			childMenu.menu_name child_menu_name,
+			childMenu.ordering child_ordering,
+			childMenu.url child_url,
+			childMenu.uri child_uri,
+			childMenu.menu_display child_menu_display
 		from
 			manager_menu parent
 			left join manager_menu childMenu
 				on childMenu.parent_id = parent.id
 		where
-			parent.parent_id = 6
+			parent.parent_id = #{id}
+		order by parent.ordering, childMenu.ordering
 	</select>
 	
 	<!-- <select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">

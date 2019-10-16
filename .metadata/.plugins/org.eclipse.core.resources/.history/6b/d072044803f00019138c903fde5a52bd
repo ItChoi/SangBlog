@@ -1,0 +1,145 @@
+package com.blog.sang.manager.menu.domain;
+
+import java.util.List;
+
+public class Menu {
+	private Long id;
+	private Long parentId;
+	private String menuLevel;
+	private String menuCode;
+	private String menuName;
+	private String ordering;
+	private String url;
+	private String uri;
+	private String menuDisplay;
+	
+	private Long id1;
+	private Long parentId1;
+	private String menuLevel1;
+	private String menuCode1;
+	private String menuName1;
+	private String ordering1;
+	private String url1;
+	private String uri1;
+	private String menuDisplay1;
+	
+	private List<Menu> childMenu;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getParentId() {
+		return parentId;
+	}
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
+	}
+	public String getMenuLevel() {
+		return menuLevel;
+	}
+	public void setMenuLevel(String menuLevel) {
+		this.menuLevel = menuLevel;
+	}
+	public String getMenuCode() {
+		return menuCode;
+	}
+	public void setMenuCode(String menuCode) {
+		this.menuCode = menuCode;
+	}
+	public String getMenuName() {
+		return menuName;
+	}
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+	public String getOrdering() {
+		return ordering;
+	}
+	public void setOrdering(String ordering) {
+		this.ordering = ordering;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getUri() {
+		return uri;
+	}
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+	public List<Menu> getChildMenu() {
+		return childMenu;
+	}
+	public void setChildMenu(List<Menu> childMenu) {
+		this.childMenu = childMenu;
+	}
+	public String getMenuDisplay() {
+		return menuDisplay;
+	}
+	public void setMenuDisplay(String menuDisplay) {
+		this.menuDisplay = menuDisplay;
+	}
+	public Long getId1() {
+		return id1;
+	}
+	public void setId1(Long id1) {
+		this.id1 = id1;
+	}
+	public Long getParentId1() {
+		return parentId1;
+	}
+	public void setParentId1(Long parentId1) {
+		this.parentId1 = parentId1;
+	}
+	public String getMenuLevel1() {
+		return menuLevel1;
+	}
+	public void setMenuLevel1(String menuLevel1) {
+		this.menuLevel1 = menuLevel1;
+	}
+	public String getMenuCode1() {
+		return menuCode1;
+	}
+	public void setMenuCode1(String menuCode1) {
+		this.menuCode1 = menuCode1;
+	}
+	public String getMenuName1() {
+		return menuName1;
+	}
+	public void setMenuName1(String menuName1) {
+		this.menuName1 = menuName1;
+	}
+	public String getOrdering1() {
+		return ordering1;
+	}
+	public void setOrdering1(String ordering1) {
+		this.ordering1 = ordering1;
+	}
+	public String getUrl1() {
+		return url1;
+	}
+	public void setUrl1(String url1) {
+		this.url1 = url1;
+	}
+	public String getUri1() {
+		return uri1;
+	}
+	public void setUri1(String uri1) {
+		this.uri1 = uri1;
+	}
+	public String getMenuDisplay1() {
+		return menuDisplay1;
+	}
+	public void setMenuDisplay1(String menuDisplay1) {
+		this.menuDisplay1 = menuDisplay1;
+	}
+	
+	
+	
+}

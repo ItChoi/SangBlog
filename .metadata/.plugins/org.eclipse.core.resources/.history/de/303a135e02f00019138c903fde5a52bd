@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.blog.sang.manager.menu.mapper.MenuManagerMapper">
+	<resultMap id="MenuResult" type="com.blog.sang.manager.menu.domain.Menu">
+		<id property="id" column="ID" />
+		<result property="parentId" column="PARENT_ID"/>
+		<result property="menuLevel" column="MENU_LEVEL"/>
+		<result property="menuCode" column="MENU_CODE"/>
+		<result property="menuName" column="MENU_NAME"/>
+		<result property="ordering" column="ORDERING"/>
+		<result property="url" column="URL"/>
+		<result property="uri" column="URI"/>
+		<result property="menuDisplay" column="MENU_DISPLAY"/>
+		<association property="childMenu" resultMap="MenuChildResult" />
+	</resultMap>
+	
+	<resultMap id="MenuChildResult" type="com.blog.sang.manager.menu.domain.Menu">
+		<id property="id" column="ID" />
+		<result property="parentId1" column="PARENT_ID"/>
+		<result property="menuLevel1" column="MENU_LEVEL"/>
+		<result property="menuCode1" column="MENU_CODE"/>
+		<result property="menuName1" column="MENU_NAME"/>
+		<result property="ordering1" column="ORDERING"/>
+		<result property="url1" column="URL"/>
+		<result property="uri1" column="URI"/>
+		<result property="menuDisplay1" column="MENU_DISPLAY"/>
+	</resultMap>
+	
+	<sql id="AllMenuColumn">
+		MM.ID,
+		MM.PARENT_ID,
+		MM.MENU_LEVEL,
+		MM.MENU_CODE,
+		MM.MENU_NAME,
+		MM.ORDERING,
+		MM.URL,
+		MM.URI,
+		MM.MENU_DISPLAY
+	</sql>
+	
+	<sql id="whereMenuParam">
+		<where>
+			<if test='id > 0'>
+				AND ID = #{id}
+			</if>
+			
+			<if test='parentId > 0'>
+				AND PARENT_ID = #{parentId}
+			</if>
+			
+			<if test='menuLevel != null and menuLevel != ""'>
+				AND MENU_LEVEL = #{menuLevel}
+			</if>
+			
+			<if test='menuCode != null and menuCode != ""'>
+				AND MENU_CODE = #{menuCode}
+			</if>
+			
+			<if test='menuName != null and menuName != ""'>
+				AND MENU_NAME = #{menuName}
+			</if>
+			
+			<if test='url != null and url != ""'>
+				AND URL = #{url}
+			</if>
+			
+			<if test='uri != null and uri != ""'>
+				AND URI = #{uri}
+			</if>
+			
+			<if test='menuDisplay != null and menuDisplay != ""'>
+				AND MENU_DISPLAY = #{menuDisplay}
+			</if>
+			
+		</where>
+	</sql>
+	
+	<select id="getAllOneMenu" resultMap="MenuResult">
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM
+		WHERE
+			PARENT_ID IS NULL
+		ORDER BY ORDERING
+	</select>
+	
+	<select id="getMenuByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM
+		<include refid="whereMenuParam" />
+		
+	</select>
+	
+	<select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
+		select 
+			parent.id,
+			parent.parent_id,
+			parent.menu_level,
+			parent.menu_code,
+			parent.menu_name,
+			parent.ordering,
+			parent.url,
+			parent.uri,
+			parent.menu_display,
+			
+			
+			childMenu.id,
+			childMenu.parent_id,
+			childMenu.menu_level,
+			childMenu.menu_code,
+			childMenu.menu_name,
+			childMenu.ordering,
+			childMenu.url,
+			childMenu.uri,
+			childMenu.menu_display
+			<!-- childMenu.id,
+			childMenu.parent_id,
+			childMenu.menu_level,
+			childMenu.menu_code,
+			childMenu.menu_name,
+			childMenu.ordering,
+			childMenu.url,
+			childMenu.uri,
+			childMenu.menu_display -->
+		from
+			manager_menu parent
+			left join manager_menu childMenu
+				on childMenu.parent_id = parent.id
+		where
+			parent.parent_id = #{id}
+		order by parent.ordering, childMenu.ordering
+	</select>
+	
+	<!-- <select id="getMenuTwoAndThreeListByMenuParam" parameterType="com.blog.sang.manager.menu.domain.Menu" resultMap="MenuResult">
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM
+		WHERE
+			PARENT_ID = #{parentId}
+		UNION
+		SELECT
+			<include refid="AllMenuColumn" />
+		FROM
+			MANAGER_MENU MM,
+			(
+				SELECT
+					<include refid="AllMenuColumn" />
+				FROM
+					MANAGER_MENU MM
+				WHERE
+					PARENT_ID = #{parentId}
+			) MMM
+		WHERE
+			MM.PARENT_ID = MMM.ID
+		order by MENU_LEVEL, ORDERING
+	</select> -->
+	
+	
+</mapper>

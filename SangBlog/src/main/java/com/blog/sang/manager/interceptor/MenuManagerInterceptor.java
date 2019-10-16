@@ -65,12 +65,11 @@ public class MenuManagerInterceptor extends HandlerInterceptorAdapter {
 		
 		if (menu != null) {
 			menuParam.setMenuLevel("");
-			menuParam.setParentId(menu.getId());
+			menuParam.setId(menu.getId());
 			
-			List<Menu> menuList = menuManagerService.getMenuTwoAndThreeListByMenuParam(menuParam);
-			
-			logger.info("menuList::: " + menuList);
-			
+			/*List<Menu> menuList = menuManagerService.getMenuTwoAndThreeListByMenuParam(menuParam);
+			logger.info("menuList1::: " + menuList);
+			logger.info("menuList2::: " + menuList.size());
 			for (Menu val : menuList) {
 				logger.info("부모       ::: " + val.getId());
 				logger.info("부모       ::: " + val.getParentId());
@@ -81,17 +80,16 @@ public class MenuManagerInterceptor extends HandlerInterceptorAdapter {
 				logger.info("부모       ::: " + val.getUrl());
 				logger.info("부모       ::: " + val.getUri());
 				logger.info("부모       ::: " + val.getMenuDisplay());
-				for (Menu val1 : menuList) {
-					logger.info("자식::: " + val1.getId());
-					logger.info("자식::: " + val1.getParentId());
-					logger.info("자식::: " + val1.getMenuLevel());
-					logger.info("자식::: " + val1.getMenuCode());
-					logger.info("자식::: " + val1.getMenuName());
-					logger.info("자식::: " + val1.getOrdering());
-					logger.info("자식::: " + val1.getUrl());
-					logger.info("자식::: " + val1.getUri());
-				}
-			}
+				logger.info("자식       ::: " + val.getChildId());
+				logger.info("자식       ::: " + val.getChildParentId());
+				logger.info("자식       ::: " + val.getChildMenuLevel());
+				logger.info("자식       ::: " + val.getChildMenuCode());
+				logger.info("자식       ::: " + val.getChildMenuName());
+				logger.info("자식       ::: " + val.getChildOrdering());
+				logger.info("자식       ::: " + val.getChildUrl());
+				logger.info("자식       ::: " + val.getChildUri());
+				logger.info("자식       ::: " + val.getChildMenuDisplay());
+			}*/
 			
 			// TODO::: 쿼리로 2차 3차 메뉴를 한 번에 가져오나, 2, 3차를 분리하여 Menu에 넣자.
 			
